@@ -39,3 +39,8 @@ app.set('view engine', '.hbs');
 // Routes
 require('./routes/html_routes')(app);
 require('./routes/api_routes')(app);
+
+// Start the server
+app.listen(PORT, () => {
+    console.log("App running on port " + PORT + "!");
+});
