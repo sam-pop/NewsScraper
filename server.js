@@ -10,10 +10,10 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 8080;
 const db = require('./models');
 
-// Init express app
+// Initialize express app
 const app = express();
 
-// Init body parser middleware
+// Initialize body parser middleware
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -25,8 +25,8 @@ app.use(express.static('public'));
 // If deployed, use the deployed database. Otherwise use the local newsScraper database
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
 // Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
 mongoose.Promise = Promise;
+// Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
 
 // Handlebars view engine init
