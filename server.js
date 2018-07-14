@@ -42,5 +42,5 @@ require('./routes/api_routes')(app);
 
 // Start the server
 app.listen(PORT, () => {
-    console.log("App running on port " + PORT + "!");
+    console.log("💻 Server running on port: " + PORT + ".");
 });
