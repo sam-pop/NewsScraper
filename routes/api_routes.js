@@ -44,11 +44,11 @@ module.exports = function (app) {
     });
 
     // returns a specific article by id (and the associated comments)
-    app.get("/api/articles/:id", function (req, res) {
+    app.get('/api/articles/:id', function (req, res) {
         db.Article.findOne({
                 _id: req.params.id
             })
-            .populate("comments")
+            .populate('comments')
             .then(function (dbArticle) {
                 res.json(dbArticle);
             })
@@ -58,7 +58,7 @@ module.exports = function (app) {
     });
 
     // adds a comment to an article (by article id)
-    app.post("/api/articles/:id", function (req, res) {
+    app.post('/api/articles/:id', function (req, res) {
         db.Comment.create(req.body)
             .then(function (dbComment) {
                 return db.Article.findOneAndUpdate({
@@ -79,21 +79,17 @@ module.exports = function (app) {
             });
     });
 
-    app.post('api/articles/:id/save', function (req, res) {
-            db.Article.findOneAndUpdate({
-                _id: req.params.id
-            }, {
-                saved: true
-            }, {
-                new: true
+    // returns all the saved articles in the db
+    app.get('/api/articles/saved', function (req, res) {
+        db.Article.find({
+                'saved': 'true'
+            })
+            .then(function (dbArticle) {
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
             });
-        })
-        .then(function (dbArticle) {
-            res.json(dbArticle);
-        })
-        .catch(function (err) {
-            res.json(err);
-        });
-
+    });
 
 };
