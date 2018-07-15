@@ -24,6 +24,7 @@ let ArticleSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        index: true,
         trim: true
     },
 
@@ -35,7 +36,13 @@ let ArticleSchema = new Schema({
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'
-    }]
+    }],
+
+    saved: {
+        type: Boolean,
+        default: false,
+        required: true
+    }
 
 });
 
