@@ -1,5 +1,6 @@
 $(function () {
 
+    // add/remove article from "saved-articles"
     $('.articleSaveBtn').on('click', function (e) {
         let id = $(this).data('article_id');
         let saved = $(this).data('saved');
@@ -26,17 +27,6 @@ $(function () {
             default:
                 break;
         }
-        // if (!$(this).data('saved')) {
-        //     $.post('/api/saved/' + id + '/save', function (req, res) {
-        //         console.log(res);
-        //     });
-        //     $(this).text('-');
-        // } else if ($(this).data('saved')) {
-        //     $.post('/api/saved/' + id + '/delete', function (req, res) {
-        //         console.log(res);
-        //     });
-        //     $(this).text('+');
-        // }
 
     });
 
