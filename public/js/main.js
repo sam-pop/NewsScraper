@@ -36,6 +36,7 @@ $(function () {
         $('#addCommentBtn').attr('data-article_id', id);
         $.get('/api/articles/' + id, function (data) {
             let mBody = $('.modal-body');
+            mBody.empty();
             if (data.length > 0) {
                 for (let c of data) {
                     let comment = $('<div>');
@@ -59,8 +60,8 @@ $(function () {
             title: commentTitle,
             body: commentBody
         };
-        $.post('/api/articles/' + id, comment, function (result) {
-            console.log(result);
+        $.post('/api/articles/' + id, comment, function () {
+            $('#commentsModal').modal('toggle');
         });
 
     });
