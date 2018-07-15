@@ -4,7 +4,6 @@ $(function () {
     $('.articleSaveBtn').on('click', function (e) {
         let id = $(this).data('article_id');
         let saved = $(this).data('saved');
-        console.log(saved);
         switch (saved) {
             case false:
                 {
