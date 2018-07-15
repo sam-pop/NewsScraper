@@ -1,0 +1,15 @@
+ {{#each news}}
+<div>
+    <br>
+    <a href={{this.url}}>
+        <img src={{this.pic}} style="float:left">
+        <p>{{this.headline}}
+    </a>
+    <button>+</button>
+    </p>
+    <p>{{this.summary}}</p>
+    <button>Comments</button>
+    <br>
+    <br>
+</div>
+{{/each}}
