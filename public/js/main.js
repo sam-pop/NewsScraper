@@ -61,6 +61,8 @@ $(function () {
             body: commentBody
         };
         $.post('/api/articles/' + id, comment, function () {
+            $('#addCommentTitle').val('');
+            $('#addCommentBody').val('');
             $('#commentsModal').modal('toggle');
         });
 
