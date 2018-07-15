@@ -1,14 +1,11 @@
 // Dependencies
-const request = require('request');
 const bodyParser = require('body-parser');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const cheerio = require('cheerio');
 const mongoose = require('mongoose');
 
 // Variables
 const PORT = process.env.PORT || 8080;
-const db = require('./models');
 
 // Initialize express app
 const app = express();
