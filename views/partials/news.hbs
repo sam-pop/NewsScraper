@@ -1,18 +1,17 @@
  {{#each news}}
-<div>
+<div class="article" data-article_id={{this._id}}>
     <br>
     <a href={{this.url}}>
-        <img src={{this.pic}} style="float:left">
-        <p>{{this.headline}}
+        <img src={{this.pic}} style="float:left"> {{this.headline}}
     </a>
     {{#if this.saved}}
-    <button class="articleSaveBtn" data-article_id={{this._id}} data-saved={{this.saved}}>-</button>
+    <button class="articleSaveBtn" data-saved={{this.saved}}>-</button>
     {{else}}
-    <button class="articleSaveBtn" data-article_id={{this._id}} data-saved={{this.saved}}>+</button>
+    <button class="articleSaveBtn" data-saved={{this.saved}}>+</button>
     {{/if}}
-    </p>
+
     <p>{{this.summary}}</p>
-    <button>Comments</button>
+    <button class="commentsBtn" data-article_id={{this._id}}>Comments</button>
     <br>
     <br>
 </div>
