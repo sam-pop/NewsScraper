@@ -29,8 +29,7 @@ module.exports = function (app) {
                     });
             });
         });
-        console.log('# Ynet articles updated!');
-        res.redirect('/api/articles');
+        res.send('Ynet articles updated!');
     });
 
     // returns all the articles in the db
