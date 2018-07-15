@@ -79,47 +79,7 @@ module.exports = function (app) {
             });
     });
 
-    // returns all the saved articles in the db
-    app.get('/api/saved', function (req, res) {
-        db.Article.find({
-                saved: true
-            })
-            .then(function (dbArticle) {
-                res.json(dbArticle);
-            })
-            .catch(function (err) {
-                res.json(err);
-            });
-    });
-
-    // mark the article as "saved"
-    app.post('/api/saved/articles/:id/save', function (req, res) {
-        db.Article.findOne({
-                _id: req.params.id
-            })
-            .then(function (dbArticle) {
-                dbArticle.saveArticle();
-                res.json(dbArticle);
-            })
-            .catch(function (err) {
-                res.json(err);
-            });
-    });
-
-    // unmark the article as "saved" (not-saved)
-    app.post('/api/saved/articles/:id/delete', function (req, res) {
-        db.Article.findOne({
-                _id: req.params.id
-            })
-            .then(function (dbArticle) {
-                dbArticle.deleteArticle();
-                res.json(dbArticle);
-            })
-            .catch(function (err) {
-                res.json(err);
-            });
-    });
-
+    // deletes a comment from an article
     app.delete("api/articles/:id/:comment", function (req, res) {
         db.Comment.findByIdAndRemove(req.params.comment, function (err, dbComment) {
             if (err)
@@ -136,5 +96,45 @@ module.exports = function (app) {
         });
     });
 
+    // returns all the saved articles in the db
+    app.get('/api/saved', function (req, res) {
+        db.Article.find({
+                saved: true
+            })
+            .then(function (dbArticle) {
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
+
+    // mark the article as "saved"
+    app.post('/api/saved/:id/save', function (req, res) {
+        db.Article.findOne({
+                _id: req.params.id
+            })
+            .then(function (dbArticle) {
+                dbArticle.saveArticle();
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
+
+    // unmark the article as "saved" (not-saved)
+    app.post('/api/saved/:id/delete', function (req, res) {
+        db.Article.findOne({
+                _id: req.params.id
+            })
+            .then(function (dbArticle) {
+                dbArticle.deleteArticle();
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
 
 };
