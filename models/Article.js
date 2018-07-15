@@ -20,6 +20,11 @@ let ArticleSchema = new Schema({
         required: true
     },
 
+    published: {
+        type: String,
+        trim: true
+    },
+
     url: {
         type: String,
         required: true,
