@@ -113,11 +113,12 @@ module.exports = function (app) {
 
     // mark the article as "saved"
     app.post('/api/saved/:id/save', function (req, res) {
-        db.Article.findOne({
+        db.Article.findOneAndUpdate({
                 _id: req.params.id
+            }, {
+                saved: true
             })
             .then(function (dbArticle) {
-                dbArticle.saveArticle();
                 res.json(dbArticle);
             })
             .catch(function (err) {
@@ -127,11 +128,12 @@ module.exports = function (app) {
 
     // unmark the article as "saved" (not-saved)
     app.post('/api/saved/:id/delete', function (req, res) {
-        db.Article.findOne({
+        db.Article.findOneAndUpdate({
                 _id: req.params.id
+            }, {
+                saved: false
             })
             .then(function (dbArticle) {
-                dbArticle.deleteArticle();
                 res.json(dbArticle);
             })
             .catch(function (err) {

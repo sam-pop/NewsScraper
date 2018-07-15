@@ -5,7 +5,11 @@
         <img src={{this.pic}} style="float:left">
         <p>{{this.headline}}
     </a>
-    <button>+</button>
+    {{#if this.saved}}
+    <button class="articleSaveBtn" data-article_id={{this._id}} data-saved={{this.saved}}>-</button>
+    {{else}}
+    <button class="articleSaveBtn" data-article_id={{this._id}} data-saved={{this.saved}}>+</button>
+    {{/if}}
     </p>
     <p>{{this.summary}}</p>
     <button>Comments</button>

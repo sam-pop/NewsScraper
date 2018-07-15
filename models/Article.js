@@ -50,18 +50,6 @@ let ArticleSchema = new Schema({
 
 });
 
-// mark the article as "saved"
-ArticleSchema.methods.saveArticle = function () {
-    this.saved = true;
-    return this.saved;
-};
-
-// unmark the article (not-saved)
-ArticleSchema.methods.deleteArticle = function () {
-    this.saved = false;
-    return this.saved;
-};
-
 let Article = mongoose.model('Article', ArticleSchema);
 
 module.exports = Article;
