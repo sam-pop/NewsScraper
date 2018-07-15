@@ -1,1 +1,14 @@
-<p>hello world!</p>
+<p>Ynet News Scraper!</p>
+
+{{#each news}}
+<div>
+    <br>
+    <img src={{this.pic}} style="float:left">
+    <a href={{this.url}}>
+        <p>{{this.headline}}</p>
+    </a>
+    <p>{{this.summary}}</p>
+    <br>
+    <br>
+</div>
+{{/each}}
