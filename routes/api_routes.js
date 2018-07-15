@@ -80,11 +80,39 @@ module.exports = function (app) {
     });
 
     // returns all the saved articles in the db
-    app.get('/api/articles/saved', function (req, res) {
+    app.get('/api/saved', function (req, res) {
         db.Article.find({
-                'saved': 'true'
+                saved: true
             })
             .then(function (dbArticle) {
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
+
+    // mark the article as "saved"
+    app.post('api/articles/:id/save', function (req, res) {
+        db.Article.findOne({
+                _id: req.params.id
+            })
+            .then(function (dbArticle) {
+                dbArticle.saveArticle();
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
+
+    // unmark the article as "saved" (not-saved)
+    app.post('api/articles/:id/delete', function (req, res) {
+        db.Article.findOne({
+                _id: req.params.id
+            })
+            .then(function (dbArticle) {
+                dbArticle.deleteArticle();
                 res.json(dbArticle);
             })
             .catch(function (err) {

@@ -45,20 +45,19 @@ let ArticleSchema = new Schema({
 
     saved: {
         type: Boolean,
-        default: false,
-        required: true
+        default: false
     }
 
 });
 
 // mark the article as "saved"
-ArticleSchema.methods.save = function () {
+ArticleSchema.methods.saveArticle = function () {
     this.saved = true;
     return this.saved;
 };
 
 // unmark the article (not-saved)
-ArticleSchema.methods.delete = function () {
+ArticleSchema.methods.deleteArticle = function () {
     this.saved = false;
     return this.saved;
 };
