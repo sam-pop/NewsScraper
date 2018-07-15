@@ -6,7 +6,7 @@ const db = require('../models');
 module.exports = function (app) {
 
     // scrapes ynetnews website for news articles and stores them in the db
-    app.get('/scrape', function (req, res) {
+    app.get('/update', function (req, res) {
         request('https://www.ynetnews.com/home/0,7340,L-3082,00.html', function (error, response, body) {
 
             let $ = cheerio.load(body);
@@ -29,7 +29,7 @@ module.exports = function (app) {
                     });
             });
         });
-        res.send('News articles updated!');
+        res.send('Ynet articles updated!');
     });
 
     // returns all the articles in the db
