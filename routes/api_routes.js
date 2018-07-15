@@ -52,7 +52,8 @@ module.exports = function (app) {
             })
             .populate('comments')
             .then(function (dbArticle) {
-                res.json(dbArticle);
+                console.log(dbArticle);
+                res.json(dbArticle.comments);
             })
             .catch(function (err) {
                 res.json(err);
