@@ -2,6 +2,10 @@ $(function () {
 
     // auto scrape new articles when the page loads
     $.get('/update', function () {
+        $('#updateMsg').text('update complete!');
+        setTimeout(function () {
+            $('#updateMsg').text('');
+        }, 5000);
         console.log('UPDATED articles!');
     });
 
