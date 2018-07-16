@@ -79,12 +79,12 @@ function renderComments(id) {
         if (data.length > 0) {
             for (let c of data) {
                 let comment = $('<div>');
-                comment.append($('<p>').addClass('commentTitle').text(c.title));
-                comment.append($('<p>').addClass('commentBody').text(c.body));
-                comment.append($('<i>').addClass('delCommentBtn material-icons text-right').attr({
+                comment.append($('<i>').addClass('delCommentBtn material-icons float-right').attr({
                     'data-comment_id': c._id,
                     'data-article_id': id
                 }).text('delete_forever'));
+                comment.append($('<p>').addClass('commentTitle').html('<b>' + c.title + '</b>'));
+                comment.append($('<p>').addClass('commentBody').html('<i>' + c.body + '</i>'));
                 comment.append($('<hr>'));
                 mBody.append(comment);
             }
