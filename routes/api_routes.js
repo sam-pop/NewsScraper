@@ -5,6 +5,16 @@ const db = require('../models');
 
 module.exports = function (app) {
 
+    app.get('/api/clear', function (req, res) {
+        db.Article.remove({}, function (err) {
+            console.log('Article collection removed');
+        });
+        db.Comment.remove({}, function (err) {
+            console.log('Comment collection removed');
+        });
+        res.redirect('/');
+    });
+
     // scrapes ynetnews website for news articles and stores them in the db
     app.get('/update', function (req, res) {
         request('https://www.ynetnews.com/home/0,7340,L-3082,00.html', function (error, response, body) {

@@ -22,6 +22,10 @@ img {
     cursor: pointer;
 }
 
+#deleteNavLink {
+    cursor: pointer;
+}
+
 /* hr {
     border-top: 1px solid #8c8b8b;
     text-align: center;

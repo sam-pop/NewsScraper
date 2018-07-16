@@ -91,6 +91,12 @@ $(function () {
         renderComments(id);
     });
 
+    $('#deleteNavLink').on('click', function () {
+        deleteAlert();
+    });
+
+
+
 
 }); //END OF document
 
@@ -116,4 +122,21 @@ function renderComments(id) {
         }
         console.log(data);
     });
+}
+
+function deleteAlert() {
+    swal({
+            title: "Are you sure?",
+            text: "Once cleared, you will lose all your saved articles and all comments!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.get('/api/clear', function () {
+                    window.location.reload();
+                });
+            }
+        });
 }
