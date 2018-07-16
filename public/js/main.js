@@ -30,7 +30,7 @@ $(function () {
 
     });
 
-    //show comments modal
+    // show comments modal
     $('.article').on('click', '.commentsBtn', function (e) {
         let id = $(this).parent().data('article_id');
         $('#addCommentBtn').attr('data-article_id', id);
@@ -56,6 +56,7 @@ $(function () {
         });
     });
 
+    // add comment from input
     $('#addCommentBtn').on('click', function (e) {
         let id = $(this).attr('data-article_id');
         let commentTitle = $('#addCommentTitle').val().trim();
@@ -72,6 +73,7 @@ $(function () {
 
     });
 
+    // remove comment
     $('.modal-body').on('click', '.delCommentBtn', function (e) {
         let id = $(this).attr('data-article_id');
         let commentId = $(this).attr('data-comment_id');
