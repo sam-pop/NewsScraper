@@ -1,5 +1,6 @@
 <div class="container">
     {{#each news}}
+    <br>
     <div class="row article" data-article_id={{this._id}}>
         <div class="col-2 text-center">
             <a href={{this.url}}>
@@ -31,8 +32,7 @@
             <p>{{this.summary}}</p>
             <p class="text-muted">Published on {{this.published}}</p>
             <br>
-            <br>
-            <br>
+            <hr>
         </div>
     </div>
     {{/each}}
