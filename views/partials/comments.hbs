@@ -9,18 +9,32 @@
             </div>
             <div class="modal-body">
             </div>
-            <hr>
             <div class="modal-addComment">
-                <div class="form">
-                    <label for="addCommentTitle">Comment Title:</label>
-                    <input type="text" id="addCommentTitle">
-                    <label for="addCommentBody">Comment Body:</label>
-                    <input type="text" id="addCommentBody">
+                <div class="form-control">
+                    <h5>Add Comment:</h5>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Title:</span>
+                        </div>
+                        <input type="text" class="form-control" id="addCommentTitle" placeholder="Enter comment title" aria-label="Enter comment title"
+                            aria-describedby="addCommentTitle" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Body:</span>
+                        </div>
+                        <textarea class="form-control" id="addCommentBody" aria-label="Body"></textarea>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="addCommentBtn" data-article_id="">Add Comment</button>
+            <div class="modal-footer" style="margin: 0 auto">
+                {{!--
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                <button type="button" class="btn btn-sm btn-dark" id="addCommentBtn" data-article_id="">
+                    <i class="material-icons">
+                        note_add
+                    </i>
+                </button>
             </div>
         </div>
     </div>
