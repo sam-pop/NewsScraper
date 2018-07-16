@@ -20,7 +20,7 @@ $(function () {
 
     // add/remove article from "saved-articles"
     $('.article').on('click', '.articleSaveBtn', function (e) {
-        let id = $(this).parent().data('article_id');
+        let id = $(this).parent().parent().data('article_id');
         let saved = $(this).data('saved');
         $(this).removeClass('showOnHover');
         switch (saved) {

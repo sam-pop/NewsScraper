@@ -116,7 +116,10 @@ module.exports = function (app) {
                 saved: true
             })
             .then(function (dbArticle) {
-                res.json(dbArticle);
+                res.render('saved', {
+                    news: dbArticle
+                });
+                // res.json(dbArticle);
             })
             .catch(function (err) {
                 res.json(err);

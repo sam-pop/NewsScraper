@@ -2,12 +2,24 @@
    Main style
    ========================================================================== */
 
+body {
+    font-family: 'Muli', sans-serif;
+}
+
 nav {
     background-image: linear-gradient(to right, #212121, #3b3b3b, #585858, #767676, #959595);
 }
 
 hr {
     color: rgb(240, 240, 240)
+}
+
+img {
+    margin-top: 7px;
+}
+
+.articleSaveBtn{
+    cursor: pointer;
 }
 
 /* hr {
