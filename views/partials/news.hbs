@@ -3,12 +3,12 @@
     <br>
     <div class="row article" data-article_id={{this._id}}>
         <div class="col-2 text-center">
-            <a href={{this.url}}>
+            <a href={{this.url}} target="_blank">
                 <img src={{this.pic}} style="float:left" class="img-thumbnail">
             </a>
         </div>
         <div class="col-10">
-            <a href={{this.url}}>
+            <a href={{this.url}} target="_blank">
                 {{this.headline}}
             </a>
             <button type="button" class="btn btn-sm btn-light commentsBtn" data-toggle="modal" data-target="#commentsModal" data-article_id={{this._id}}>Comments {{#if this.comments.length}}

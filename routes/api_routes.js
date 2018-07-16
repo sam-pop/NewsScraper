@@ -65,6 +65,7 @@ module.exports = function (app) {
                 published: -1
             })
             .then(function (dbArticle) {
+                // convert the Date to a "short-date" using moment.js
                 for (let a of dbArticle) {
                     a.shortDate = moment(a.published).format('DD.MM.YYYY');
                 }
