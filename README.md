@@ -16,5 +16,10 @@ This full-stack app was built using:
 > All the news articles are dynamically scraped from [YnetNews](www.ynetnews.com).
 
 ## Demo
-https://warm-basin-64673.herokuapp.com/
+Live demo: https://warm-basin-64673.herokuapp.com/
+
 [![Screenshot](https://s8.postimg.cc/a3mgpk7c5/Screenshot_2018-07-16_News_Scraper.png)](https://warm-basin-64673.herokuapp.com/)
+
+### Mobile
+
+[![Mobile Screenshot](https://s8.postimg.cc/j176n72fp/news_Scraper.jpg)](https://warm-basin-64673.herokuapp.com/)
