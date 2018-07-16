@@ -1,5 +1,4 @@
 $(function () {
-
     // auto scrape new articles when the page loads
     $.get('/update', function () {
         $('#updateMsg').text('(update complete!)');
@@ -7,6 +6,11 @@ $(function () {
             $('#updateMsg').text('');
         }, 5000);
         console.log('UPDATED articles!');
+    });
+
+    // refreshes the window when we exit the comments modal
+    $(".modal").on("hidden.bs.modal", function () {
+        window.location.reload();
     });
 
     // handles the hide/show on mouse over/out of the "save" star buttons
