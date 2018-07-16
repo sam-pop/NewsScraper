@@ -1,29 +1,38 @@
- {{#each news}}
-<div class="article" data-article_id={{this._id}}>
-    <br>
-    <a href={{this.url}}>
-        <img src={{this.pic}} style="float:left" class="img-thumbnail">
-    </a>
-    <a href={{this.url}}>
-        {{this.headline}}
-    </a>
-    {{#if this.saved}}
-    <span class="btn btn-circle btn-sm articleSaveBtn" data-saved={{this.saved}}>
-        <i class="material-icons">
-            star
-        </i>
-    </span>
-    {{else}}
-    <span class="btn btn-circle btn-sm articleSaveBtn showOnHover" data-saved={{this.saved}}>
-        <i class="material-icons">
-            star_border
-        </i>
-    </span>
-    {{/if}}
-
-    <p>{{this.summary}}</p>
-    <button type="button" class="btn commentsBtn" data-toggle="modal" data-target="#commentsModal" data-article_id={{this._id}}>Comments</button>
-    <br>
-    <br>
+<div class="container">
+    {{#each news}}
+    <div class="row article" data-article_id={{this._id}}>
+        <div class="col-2 text-center">
+            <a href={{this.url}}>
+                <img src={{this.pic}} style="float:left" class="img-thumbnail">
+            </a>
+        </div>
+        <div class="col-10">
+            <a href={{this.url}}>
+                {{this.headline}}
+            </a>
+            <button type="button" class="btn btn-sm btn-light commentsBtn" data-toggle="modal" data-target="#commentsModal" data-article_id={{this._id}}>Comments {{#if this.comments.length}}
+                <span class="badge badge-light">{{this.comments.length}}</span>
+                {{/if}}
+            </button>
+            {{#if this.saved}}
+            <span class="align-top articleSaveBtn" data-saved={{this.saved}}>
+                <i class="material-icons">
+                    star
+                </i>
+            </span>
+            {{else}}
+            <span class="align-top articleSaveBtn showOnHover" data-saved={{this.saved}}>
+                <i class="material-icons">
+                    star_border
+                </i>
+            </span>
+            {{/if}}
+            <br>
+            <p>{{this.summary}}</p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    {{/each}}
 </div>
-{{/each}}

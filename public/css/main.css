@@ -2,11 +2,6 @@
    Main style
    ========================================================================== */
 
-.btn-circle {
-    border-radius: 50%;
-    width: 30px;
-}
-
 nav {
     background-image: linear-gradient(to right, #212121, #3b3b3b, #585858, #767676, #959595);
 }

@@ -12,7 +12,7 @@ $(function () {
     // handles the hide/show on mouse over/out of the "save" star buttons
     $('.showOnHover').hide();
     $(document).on('mouseover', '.article', function () {
-        $(this).children().show();
+        $(this).children().children().show();
     });
     $('.article').on('mouseout', function () {
         $('.showOnHover').hide();
@@ -52,7 +52,7 @@ $(function () {
 
     // show comments modal
     $('.article').on('click', '.commentsBtn', function (e) {
-        let id = $(this).parent().data('article_id');
+        let id = $(this).parent().parent().data('article_id');
         $('#addCommentBtn').attr('data-article_id', id);
         renderComments(id);
     });
