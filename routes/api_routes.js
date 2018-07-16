@@ -25,9 +25,23 @@ module.exports = function (app) {
             $('div.art_headlines_item').each(function (i, element) {
                 let result = {};
 
+                // convert the date from string to dd/MM/YYY date format
+                let dateString = $(element).find('div.art_headlines_details').text().trim().slice(-8);
+                let dataSplit = dateString.split('.');
+                dataSplit[2] = "20" + dataSplit[2];
+                let dateConverted;
+                if (dataSplit[2].split(" ").length > 1) {
+                    var hora = dataSplit[2].split(" ")[1].split(':');
+                    dataSplit[2] = dataSplit[2].split(" ")[0];
+                    dateConverted = new Date(dataSplit[2], dataSplit[1] - 1, dataSplit[0], hora[0], hora[1]);
+                } else {
+                    dateConverted = new Date(dataSplit[2], dataSplit[1] - 1, dataSplit[0]);
+                }
+
+                // let mydate = new Date(date.replace(pattern, '$3-$2-$1'));
                 result.headline = $(element).find('h4').find('a').text();
                 result.summary = $(element).find('a.art_headlines_sub_title').text();
-                result.published = $(element).find('div.art_headlines_details').text().trim().slice(-8);
+                result.published = dateConverted;
                 result.url = 'http://www.ynetnews.com' + $(element).find('h4').find('a').attr('href');
                 result.pic = $(element).find('a.art_headlines_image').find('img').attr('src');
 

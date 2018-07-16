@@ -21,7 +21,7 @@ let ArticleSchema = new Schema({
     },
 
     published: {
-        type: String,
+        type: Date,
         trim: true
     },
 
