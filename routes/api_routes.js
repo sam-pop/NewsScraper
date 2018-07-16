@@ -29,7 +29,7 @@ module.exports = function (app) {
                     });
             });
         });
-        res.send('Ynet articles updated!');
+        res.redirect('/');
     });
 
     // returns all the articles in the db
