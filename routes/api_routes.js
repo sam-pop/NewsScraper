@@ -1,6 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
-
+const moment = require('moment');
 const db = require('../models');
 
 module.exports = function (app) {
@@ -65,9 +65,13 @@ module.exports = function (app) {
                 scrapeDate: -1
             })
             .then(function (dbArticle) {
-                res.render('index', {
-                    news: dbArticle
-                });
+                for (let a of dbArticle) {
+                    a.shortDate = moment(a.published).format('DD.MM.YYYY');
+                }
+                var now =
+                    res.render('index', {
+                        news: dbArticle
+                    });
             })
             .catch(function (err) {
                 res.json(err);
