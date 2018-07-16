@@ -13,7 +13,7 @@ This full-stack app was built using:
 - [moment.js](https://momentjs.com/)
 - [Handlebars](https://handlebarsjs.com/) (view engine)
 
-> All the news articles are dynamically scraped from [YnetNews](www.ynetnews.com).
+> All the news articles are dynamically scraped from [YnetNews](http://www.ynetnews.com).
 
 ## Demo
 Live demo: https://warm-basin-64673.herokuapp.com/
