@@ -1,9 +1,18 @@
 $(function () {
+    $('.showOnHover').hide();
+
+    $(document).on('mouseover', '.article', function () {
+        $(this).children().show();
+    });
+    $('.article').on('mouseout', function () {
+        $('.showOnHover').hide();
+    });
 
     // add/remove article from "saved-articles"
     $('.article').on('click', '.articleSaveBtn', function (e) {
         let id = $(this).parent().data('article_id');
         let saved = $(this).data('saved');
+        $(this).removeClass('showOnHover');
         switch (saved) {
             case false:
                 {
@@ -12,6 +21,7 @@ $(function () {
                     });
                     $(this).data('saved', true);
                     $(this).html("<i class='material-icons'>star</i>");
+                    $(this).removeClass('showOnHover');
                 }
                 break;
             case true:
@@ -21,7 +31,7 @@ $(function () {
                     });
                     $(this).data('saved', false);
                     $(this).html("<i class='material-icons'>star_border</i>");
-
+                    $(this).addClass('showOnHover');
                 }
                 break;
             default:
