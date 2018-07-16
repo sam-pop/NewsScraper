@@ -2,7 +2,10 @@
 <div class="article" data-article_id={{this._id}}>
     <br>
     <a href={{this.url}}>
-        <img src={{this.pic}} style="float:left"> {{this.headline}}
+        <img src={{this.pic}} style="float:left" class="img-thumbnail">
+    </a>
+    <a href={{this.url}}>
+        {{this.headline}}
     </a>
     {{#if this.saved}}
     <span class="btn btn-circle btn-sm articleSaveBtn" data-saved={{this.saved}}>

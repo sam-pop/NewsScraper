@@ -2,7 +2,7 @@ $(function () {
 
     // auto scrape new articles when the page loads
     $.get('/update', function () {
-        $('#updateMsg').text('update complete!');
+        $('#updateMsg').text('(update complete!)');
         setTimeout(function () {
             $('#updateMsg').text('');
         }, 5000);
@@ -26,7 +26,7 @@ $(function () {
         switch (saved) {
             case false:
                 {
-                    $.post('/api/saved/' + id + '/save', function (req, res) {
+                    $.post(`/api/saved/${id}/save`, function (req, res) {
                         console.log(res);
                     });
                     $(this).data('saved', true);
@@ -36,7 +36,7 @@ $(function () {
                 break;
             case true:
                 {
-                    $.post('/api/saved/' + id + '/delete', function (req, res) {
+                    $.post(`/api/saved/${id}/delete`, function (req, res) {
                         console.log(res);
                     });
                     $(this).data('saved', false);
@@ -66,7 +66,7 @@ $(function () {
             title: commentTitle,
             body: commentBody
         };
-        $.post('/api/articles/' + id, comment, function () {
+        $.post(`/api/articles/${id}`, comment, function () {
             $('#addCommentTitle').val('');
             $('#addCommentBody').val('');
             renderComments(id);
@@ -79,7 +79,7 @@ $(function () {
         let id = $(this).attr('data-article_id');
         let commentId = $(this).attr('data-comment_id');
         $.ajax({
-            url: '/api/articles/' + id + '/' + commentId,
+            url: `/api/articles/${id}/${commentId}`,
             type: 'DELETE',
             success: function (data) {
                 console.log(data);
@@ -93,7 +93,7 @@ $(function () {
 
 // renders the comments associated to the article in the modal
 function renderComments(id) {
-    $.get('/api/articles/' + id, function (data) {
+    $.get(`/api/articles/${id}`, function (data) {
         let mBody = $('.modal-body');
         mBody.empty();
         if (data.length > 0) {
