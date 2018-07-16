@@ -2,12 +2,12 @@
     {{#each news}}
     <br>
     <div class="row article" data-article_id={{this._id}}>
-        <div class="col-2 text-center">
+        <div class="col-sm-2 text-center">
             <a href={{this.url}} target="_blank">
-                <img src={{this.pic}} style="float:left" class="img-thumbnail">
+                <img src={{this.pic}} style="float:left" class="img-thumbnail img-fluid articleImg">
             </a>
         </div>
-        <div class="col-10">
+        <div class="col-sm-10">
             <a href={{this.url}} target="_blank">
                 {{this.headline}}
             </a>
