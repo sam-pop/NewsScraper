@@ -9,7 +9,9 @@
         </div>
         <div class="col-sm-10">
             <a href={{this.url}} target="_blank">
-                {{this.headline}}
+                <span class="lead">
+                    {{this.headline}}
+                </span>
             </a>
             <button type="button" class="btn btn-sm btn-light commentsBtn" data-toggle="modal" data-target="#commentsModal" data-article_id={{this._id}}>Comments {{#if this.comments.length}}
                 <span class="badge badge-light">{{this.comments.length}}</span>
@@ -30,7 +32,7 @@
             {{/if}}
             <br>
             <p>{{this.summary}}</p>
-            <p class="text-muted">Published on {{this.shortDate}}</p>
+            <p class="blockquote-footer">Published on {{this.shortDate}}</p>
             <br>
             <hr>
         </div>
