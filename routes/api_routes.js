@@ -16,7 +16,7 @@ module.exports = function (app) {
 
                 result.headline = $(element).find('h4').find('a').text();
                 result.summary = $(element).find('a.art_headlines_sub_title').text();
-                result.published = $(element).find('div.art_headlines_details').text();
+                result.published = $(element).find('div.art_headlines_details').text().trim().slice(-8);
                 result.url = 'http://www.ynetnews.com' + $(element).find('h4').find('a').attr('href');
                 result.pic = $(element).find('a.art_headlines_image').find('img').attr('src');
 

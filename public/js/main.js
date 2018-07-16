@@ -71,7 +71,6 @@ $(function () {
             $('#addCommentBody').val('');
             renderComments(id);
         });
-
     });
 
     // remove comment
