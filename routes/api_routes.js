@@ -62,7 +62,7 @@ module.exports = function (app) {
     // returns all the articles in the db
     app.get('/api/articles', function (req, res) {
         db.Article.find({}).sort({
-                scrapeDate: -1
+                published: -1
             })
             .then(function (dbArticle) {
                 for (let a of dbArticle) {
