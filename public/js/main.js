@@ -1,6 +1,12 @@
 $(function () {
-    $('.showOnHover').hide();
 
+    // auto scrape new articles when the page loads
+    $.get('/update', function () {
+        console.log('UPDATED articles!');
+    });
+
+    // handles the hide/show on mouse over/out of the "save" star buttons
+    $('.showOnHover').hide();
     $(document).on('mouseover', '.article', function () {
         $(this).children().show();
     });

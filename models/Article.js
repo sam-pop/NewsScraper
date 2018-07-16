@@ -46,6 +46,11 @@ let ArticleSchema = new Schema({
     saved: {
         type: Boolean,
         default: false
+    },
+
+    scrapeDate: {
+        type: Date,
+        default: Date.now()
     }
 
 });

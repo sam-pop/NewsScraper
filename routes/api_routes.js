@@ -36,7 +36,9 @@ module.exports = function (app) {
 
     // returns all the articles in the db
     app.get('/api/articles', function (req, res) {
-        db.Article.find({})
+        db.Article.find({}).sort({
+                date: -1
+            })
             .then(function (dbArticle) {
                 res.render('index', {
                     news: dbArticle
