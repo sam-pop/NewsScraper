@@ -83,17 +83,24 @@ module.exports = function (app) {
     });
 
     // deletes a comment from an article
-    app.delete("api/articles/:id/:comment", function (req, res) {
-        db.Comment.findByIdAndRemove(req.params.comment, function (err, dbComment) {
+    app.delete("/api/articles/:id/:comment", function (req, res) {
+        db.Comment.remove({
+            _id: req.params.comment
+        }, function (err) {
             if (err)
                 res.json(err);
             else {
-                Article.findOneAndUpdate({
+                db.Article.findOneAndUpdate({
                     _id: req.params.id
                 }, {
-                    $pull: {
-                        comment: dbComment._id
+                    $pullAll: {
+                        comments: [req.params.comment]
                     }
+                }, {
+                    new: true
+                }, function (err) {
+                    if (err)
+                        res.json(err);
                 });
             }
         });

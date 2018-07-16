@@ -42,6 +42,10 @@ $(function () {
                     let comment = $('<div>');
                     comment.append($('<p>').addClass('commentTitle').text(c.title));
                     comment.append($('<p>').addClass('commentBody').text(c.body));
+                    comment.append($('<i>').addClass('delCommentBtn material-icons text-right').attr({
+                        'data-comment_id': c._id,
+                        'data-article_id': id
+                    }).text('delete_forever'));
                     comment.append($('<hr>'));
                     mBody.append(comment);
                 }
@@ -68,6 +72,17 @@ $(function () {
 
     });
 
+    $('.modal-body').on('click', '.delCommentBtn', function (e) {
+        let id = $(this).attr('data-article_id');
+        let commentId = $(this).attr('data-comment_id');
+        $.ajax({
+            url: '/api/articles/' + id + '/' + commentId,
+            type: 'DELETE',
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
 
 
 }); //END OF document
