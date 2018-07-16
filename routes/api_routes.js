@@ -98,7 +98,7 @@ module.exports = function (app) {
                     }
                 }, {
                     new: true
-                }, function (err) {
+                }, function (err, data) {
                     if (err)
                         res.json(err);
                 });

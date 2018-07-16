@@ -34,26 +34,7 @@ $(function () {
     $('.article').on('click', '.commentsBtn', function (e) {
         let id = $(this).parent().data('article_id');
         $('#addCommentBtn').attr('data-article_id', id);
-        $.get('/api/articles/' + id, function (data) {
-            let mBody = $('.modal-body');
-            mBody.empty();
-            if (data.length > 0) {
-                for (let c of data) {
-                    let comment = $('<div>');
-                    comment.append($('<p>').addClass('commentTitle').text(c.title));
-                    comment.append($('<p>').addClass('commentBody').text(c.body));
-                    comment.append($('<i>').addClass('delCommentBtn material-icons text-right').attr({
-                        'data-comment_id': c._id,
-                        'data-article_id': id
-                    }).text('delete_forever'));
-                    comment.append($('<hr>'));
-                    mBody.append(comment);
-                }
-            } else {
-                mBody.html('No comments to show!');
-            }
-            console.log(data);
-        });
+        renderComments(id);
     });
 
     // add comment from input
@@ -68,7 +49,7 @@ $(function () {
         $.post('/api/articles/' + id, comment, function () {
             $('#addCommentTitle').val('');
             $('#addCommentBody').val('');
-            $('#commentsModal').modal('toggle');
+            renderComments(id);
         });
 
     });
@@ -84,7 +65,32 @@ $(function () {
                 console.log(data);
             }
         });
+        renderComments(id);
     });
 
 
 }); //END OF document
+
+// renders the comments associated to the article in the modal
+function renderComments(id) {
+    $.get('/api/articles/' + id, function (data) {
+        let mBody = $('.modal-body');
+        mBody.empty();
+        if (data.length > 0) {
+            for (let c of data) {
+                let comment = $('<div>');
+                comment.append($('<p>').addClass('commentTitle').text(c.title));
+                comment.append($('<p>').addClass('commentBody').text(c.body));
+                comment.append($('<i>').addClass('delCommentBtn material-icons text-right').attr({
+                    'data-comment_id': c._id,
+                    'data-article_id': id
+                }).text('delete_forever'));
+                comment.append($('<hr>'));
+                mBody.append(comment);
+            }
+        } else {
+            mBody.html('No comments to show!');
+        }
+        console.log(data);
+    });
+}
