@@ -29,7 +29,9 @@ module.exports = function (app) {
                     });
             });
         });
-        res.redirect('/');
+        setTimeout(function () {
+            res.redirect('/');
+        }, 2000);
     });
 
     // returns all the articles in the db
