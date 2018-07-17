@@ -17,8 +17,8 @@ module.exports = function (app) {
 
     // scrapes ynetnews website for news articles and stores them in the db
     app.get('/update', function (req, res) {
-        request('https://www.ynetnews.com/home/0,7340,L-3082,00.html', function (error, response, body) {
-            // request('https://www.ynet.co.il/home/0,7340,L-4686,00.html', function (error, response, body) {
+        request('https://www.ynetnews.com/home/0,7340,L-4666,00.html', function (error, response, body) {
+            // request('https://www.ynetnews.com/home/0,7340,L-3082,00.html', function (error, response, body) {
 
             let $ = cheerio.load(body);
 
