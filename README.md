@@ -18,7 +18,7 @@ This full-stack app was built using:
 ## Demo
 Live demo: https://warm-basin-64673.herokuapp.com/
 
-[![Screenshot](https://s8.postimg.cc/4h4cgr2s5/Screenshot_2018-07-16_News_Scraper_1.png)](https://warm-basin-64673.herokuapp.com/)
+[![Screenshot](https://s22.postimg.cc/reg3m6axt/screen_Grab1.gif](https://warm-basin-64673.herokuapp.com/)
 
 ### Mobile
 
