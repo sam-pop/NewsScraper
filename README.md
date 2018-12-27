@@ -1,6 +1,6 @@
 # NewsScraper
 
-NewsScraper is a news scraping web-app that keeps you updated with the current news, lets you save your favorite articles and read/leave comments on articles.
+NewsScraper is a news scraping web app that keeps you updated with the latest news. You can also save your favorite articles and read/leave comments on articles.
 
 ## What I used
 This full-stack app was built using:
